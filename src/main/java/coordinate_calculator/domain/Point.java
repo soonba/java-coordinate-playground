@@ -7,13 +7,16 @@ public class Point {
     private final int x;
     private final int y;
 
+    public static final int MAX_VALUE = 24;
+    public static final int MIN_VALUE = 0;
+
     public Point(int x, int y) {
         this.x = validation(x);
         this.y = validation(y);
     }
 
     private int validation(int coordinateValue) {
-        if(coordinateValue > 24 || coordinateValue < 0) {
+        if(coordinateValue > MAX_VALUE || coordinateValue < MIN_VALUE) {
             throw new InvalidParameterException("좌표의 값은 0에서 24 사이입니다.");
         }
         return coordinateValue;
