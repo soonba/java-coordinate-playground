@@ -33,6 +33,7 @@ public class OutputView {
     public static void drawMatrix(List<Point> initPoints) {
         for (int i = 24; i > 0; i--) {
             sb.append(makeYLine(i));
+            makePoints(i,initPoints);
         }
         sb.append(PADDING).append(PADDING).append(ORIGIN_POINT);
         for (int i = 0; i < 24; i++) {
@@ -40,7 +41,7 @@ public class OutputView {
         }
         sb.append(NEXT_LINE).append(PADDING).append(PADDING);;
         for (int i = 0; i <= 24; i++) {
-            sb.append(makeXLine(i));
+            makeXLine(i);
         }
 
 
@@ -49,8 +50,27 @@ public class OutputView {
 
     }
 
+    private static void makePoints(int i, List<Point> initPoints) {
+        for (Point initPoint : initPoints) {
+            appendIfPoints(i, initPoint);
+        }
+        sb.append(NEXT_LINE);
+    }
+
+    private static void appendIfPoints(int i,Point point) {
+        if(i == point.getY()) {
+            repeatPadding(point);
+            sb.append("*");
+        }
+    }
+
+    private static void repeatPadding(Point point) {
+        for (int i = 0; i < point.getX(); i++) {
+            sb.append(FOUR_PADDING);
+        }
+    }
+
     private static String makeXLine(int i) {
-        StringBuilder sb = new StringBuilder();
         if(i % 2 == 0) {
             sb.append(i);
             sb.append(FOUR_PADDING);
@@ -65,9 +85,9 @@ public class OutputView {
         StringBuilder sb = new StringBuilder();
         if(i<10) sb.append(PADDING);
         if(i%2 ==0) {
-            return sb.append(i).append(AXIS_Y).append(NEXT_LINE).toString();
+            return sb.append(i).append(AXIS_Y).toString();
         }
         if(i>10) sb.append(PADDING);
-        return sb.append(PADDING).append(AXIS_Y).append(NEXT_LINE).toString();
+        return sb.append(PADDING).append(AXIS_Y).toString();
     }
 }
