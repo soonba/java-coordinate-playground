@@ -12,6 +12,6 @@ public class LineCalculator implements Calculator {
 
     @Override
     public String printResult() {
-        return "두 점 사이 거리는" + Math.sqrt(Math.pow((pointA.getX()-pointB.getX()),2) + Math.pow((pointA.getY()-pointB.getY()),2));
+        return "두 점 사이 거리는 " + (int) Math.sqrt(Math.pow((pointA.getX()-pointB.getX()),2) + Math.pow((pointA.getY()-pointB.getY()),2));
     }
 }

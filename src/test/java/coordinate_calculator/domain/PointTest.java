@@ -1,6 +1,5 @@
 package coordinate_calculator.domain;
 
-import coordinate_calculator.domain.Point;
 import org.junit.jupiter.api.Test;
 
 import java.security.InvalidParameterException;
