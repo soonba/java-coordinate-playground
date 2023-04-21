@@ -1,6 +1,5 @@
 package coordinate_calculator.domain;
 
-import java.security.InvalidParameterException;
 import java.util.Objects;
 
 public class Point {
@@ -16,8 +15,8 @@ public class Point {
     }
 
     private int validation(int coordinateValue) {
-        if(coordinateValue > MAX_VALUE || coordinateValue < MIN_VALUE) {
-            throw new InvalidParameterException("좌표의 값은 0에서 24 사이입니다.");
+        if (coordinateValue > MAX_VALUE || coordinateValue < MIN_VALUE) {
+            throw new IllegalArgumentException("좌표의 값은 0에서 24 사이입니다.");
         }
         return coordinateValue;
     }

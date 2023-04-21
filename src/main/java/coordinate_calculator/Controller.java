@@ -25,7 +25,8 @@ public class Controller {
             return FigureFactory.getInstance(points);
         } catch (Exception e) {
             OutputView.invalidPointsErrorMessage(e.getMessage());
-            return getInstance(points);
+            Points newPoints = init();
+            return getInstance(newPoints);
         }
     }
 
