@@ -7,7 +7,7 @@ public class Line implements Figure {
     private final Points points;
 
     public Line(Points points) {
-        this.points = validation(points);
+        this.points = points;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Line implements Figure {
     }
 
     @Override
-    public Points validation(Points points) {
-        return points;
+    public Figure validation() {
+        return this;
     }
 }

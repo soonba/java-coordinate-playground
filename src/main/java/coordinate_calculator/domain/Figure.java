@@ -1,7 +1,7 @@
 package coordinate_calculator.domain;
 
 public interface Figure {
-    Points validation(Points points);
+    Figure validation();
 
     double getValue();
     String getPrefixMessage();

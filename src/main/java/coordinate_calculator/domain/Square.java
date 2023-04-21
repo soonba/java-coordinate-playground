@@ -9,7 +9,7 @@ public class Square implements Figure {
     private final Points points;
 
     public Square(Points points) {
-        this.points = validation(points);
+        this.points = points;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Square implements Figure {
     }
 
     @Override
-    public Points validation(Points points) {
+    public Figure validation() {
         Set<Integer> xSet = new HashSet<>();
         Set<Integer> ySet = new HashSet<>();
         Set<Point> pointSet = new HashSet<>();
@@ -42,6 +42,6 @@ public class Square implements Figure {
             pointSet.add(point);
         });
         if(xSet.size() != 2 || ySet.size() != 2 || pointSet.size() != 4) throw new InvalidParameterException("직사각형만 허용합니다.");
-        return points;
+        return this;
     }
 }
