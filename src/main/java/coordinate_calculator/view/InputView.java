@@ -1,6 +1,7 @@
 package coordinate_calculator.view;
 
 import coordinate_calculator.domain.Point;
+import coordinate_calculator.domain.Points;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,14 +13,14 @@ public class InputView {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static List<Point> initPoints() throws Exception {
+    public static Points initPoints() throws Exception {
         String[] split = br.readLine().split("-");
         List<Point> points = new ArrayList<>();
         Arrays.stream(split).forEach(s -> {
             int[] pointArr = parsePoint(s);
             points.add(new Point(pointArr[0],pointArr[1]));
         });
-        return points;
+        return new Points(points);
     }
 
     private static int[] parsePoint(String str) {

@@ -1,3 +1,14 @@
+ 
+
+기능정의
+
+- 입력값을 받는다.
+- 입력값의 validation 을 체크한다.(0~24)
+- 입력값의 개수에 따른 Shape 구현체로, Calculator 를 초기화한다.
+- 길이, 넓이 를 계산하여 값을 리턴한다.
+- 출력한다.
+
+
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
 ---

@@ -1,8 +1,7 @@
 package coordinate_calculator.view;
 
 import coordinate_calculator.domain.Point;
-
-import java.util.List;
+import coordinate_calculator.domain.Points;
 
 public class OutputView {
 
@@ -30,14 +29,14 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public static void drawMatrix(List<Point> initPoints) {
+    public static void drawMatrix(Points initPoints) {
         makeYLineNumberPoints(initPoints);
         makeXLine();
         makeXNumbers();
         System.out.println(sb);
     }
 
-    private static void makeYLineNumberPoints(List<Point> initPoints) {
+    private static void makeYLineNumberPoints(Points initPoints) {
         for (int i = Point.MAX_VALUE; i > Point.MIN_VALUE; i--) {
             makeYLineAndNumber(i);
             makePoints(i, initPoints);
@@ -45,23 +44,23 @@ public class OutputView {
     }
 
     private static void makeYLineAndNumber(int i) {
-        if(isEven(i)) {
+        if (isEven(i)) {
             sb.append(String.format("%-2d", i)).append(AXIS_Y);
             return;
         }
         sb.append(TWO_PADDING).append(AXIS_Y);
     }
 
-    private static void makePoints(int i, List<Point> initPoints) {
+    private static void makePoints(int i, Points initPoints) {
         int correction = 0;
-        for (Point aPoint : initPoints) {
+        for (Point aPoint : initPoints.getPoints()) {
             correction += appendIfPoint(i, aPoint, correction);
         }
         sb.append(NEXT_LINE);
     }
 
     private static int appendIfPoint(int i, Point point, int correction) {
-        if(i == point.getY()) {
+        if (i == point.getY()) {
             makePoint(point, correction);
             return point.getX();
         }
@@ -69,7 +68,7 @@ public class OutputView {
     }
 
     private static void makePoint(Point point, int correction) {
-        for (int i = correction; i < point.getX()-1; i++) {
+        for (int i = correction; i < point.getX() - 1; i++) {
             sb.append(FOUR_PADDING);
         }
         sb.append(THREE_PADDING).append(POINT);
@@ -88,9 +87,10 @@ public class OutputView {
             makeXNumber(i);
         }
     }
+
     private static void makeXNumber(int i) {
         sb.append(TWO_PADDING);
-        if(isEven(i)) {
+        if (isEven(i)) {
             sb.append(String.format("%-4d", i));
         }
     }
