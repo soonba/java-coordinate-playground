@@ -21,9 +21,17 @@ public class SquareTest {
     }
 
     @Test
-    void 사각형조건불만족() {
+    void 사각형조건불만족_직사각형아님() {
         assertThatThrownBy(() -> {
             Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(2, 2), new Point(3,2),new Point(2,1))));
+            square = new Square(points);
+        }).isInstanceOf(InvalidParameterException.class);
+    }
+
+    @Test
+    void 사각형조건불만족_중복점() {
+        assertThatThrownBy(() -> {
+            Points points = new Points(new ArrayList<>(List.of(new Point(10, 10), new Point(14, 15), new Point(10,10),new Point(14,15))));
             square = new Square(points);
         }).isInstanceOf(InvalidParameterException.class);
     }

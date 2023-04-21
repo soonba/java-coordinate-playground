@@ -35,11 +35,13 @@ public class Square implements Figure {
     public Points validation(Points points) {
         Set<Integer> xSet = new HashSet<>();
         Set<Integer> ySet = new HashSet<>();
+        Set<Point> pointSet = new HashSet<>();
         points.getPoints().forEach(point -> {
             xSet.add(point.getX());
             ySet.add(point.getY());
+            pointSet.add(point);
         });
-        if(xSet.size() != 2 || ySet.size() != 2) throw new InvalidParameterException("직사각형만 허용합니다.");
+        if(xSet.size() != 2 || ySet.size() != 2 || pointSet.size() != 4) throw new InvalidParameterException("직사각형만 허용합니다.");
         return points;
     }
 }
