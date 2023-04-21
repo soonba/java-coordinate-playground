@@ -11,11 +11,22 @@ public class Controller {
 
     public void run() {
         Points points = init();
-        Figure figure = FigureFactory.getInstance(points);
+        Figure figure = getInstance(points);
+
         double value = figure.getValue();
         String prefixMessage = figure.getPrefixMessage();
+
         OutputView.drawMatrix(points);
         OutputView.print(prefixMessage,value);
+    }
+
+    private static Figure getInstance(Points points) {
+        try {
+            return FigureFactory.getInstance(points);
+        } catch (Exception e) {
+            OutputView.invalidPointsErrorMessage(e.getMessage());
+            return getInstance(points);
+        }
     }
 
     private static Points init() {
@@ -23,7 +34,7 @@ public class Controller {
             OutputView.initMessage();
             return InputView.initPoints();
         } catch (Exception e) {
-            OutputView.errorMessage();
+            OutputView.initErrorMessage();
             return init();
         }
     }

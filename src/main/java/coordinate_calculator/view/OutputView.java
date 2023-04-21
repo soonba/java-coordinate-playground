@@ -20,7 +20,7 @@ public class OutputView {
         System.out.println("좌표를 입력하세요.");
     }
 
-    public static void errorMessage() {
+    public static void initErrorMessage() {
         System.out.println("좌표는 0부터 24사이이며, 다음 포멧을 준수해주세요.");
         System.out.println("[예시] (10,10)-(14,15)");
     }
@@ -97,5 +97,9 @@ public class OutputView {
 
     private static boolean isEven(int i) {
         return i % 2 == 0;
+    }
+
+    public static void invalidPointsErrorMessage(String message) {
+        System.out.println(message);
     }
 }
