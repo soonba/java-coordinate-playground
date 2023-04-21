@@ -25,8 +25,8 @@ public class OutputView {
         System.out.println("[예시] (10,10)-(14,15)");
     }
 
-    public static void print(String result) {
-        System.out.println(result);
+    public static void print(String result, double value) {
+        System.out.println(result + value);
     }
 
     public static void drawMatrix(Points initPoints) {

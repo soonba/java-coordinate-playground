@@ -6,7 +6,7 @@ public class FigureFactory {
 
     public static final int SIZE_LINE = 2;
 
-    public Figure getInstance(Points points) {
+    public static Figure getInstance(Points points) {
         int size = points.getSize();
         if(size == SIZE_LINE) return new Line(points);
 //        if(size == SIZE_SQUARE) return new SQURE(points);
