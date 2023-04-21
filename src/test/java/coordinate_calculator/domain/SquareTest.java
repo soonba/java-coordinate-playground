@@ -22,7 +22,7 @@ public class SquareTest {
     @Test
     void 사각형조건불만족() {
         assertThatThrownBy(() -> {
-            Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(2, 2), new Point(1,2),new Point(2,1))));
+            Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(2, 2), new Point(3,2),new Point(2,1))));
             square = new Square(points);
         }).isInstanceOf(InvalidParameterException.class);
     }

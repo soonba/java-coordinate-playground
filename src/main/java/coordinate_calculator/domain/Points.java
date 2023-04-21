@@ -16,4 +16,8 @@ public class Points {
     public int getSize() {
         return points.size();
     }
+
+    public List<Point> getPoints() {
+        return points;
+    }
 }
