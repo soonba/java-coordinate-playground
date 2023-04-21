@@ -53,7 +53,7 @@ public class OutputView {
 
     private static void makePoints(int i, Points initPoints) {
         int correction = 0;
-        for (Point aPoint : initPoints.getPoints()) {
+        for (Point aPoint : initPoints.toPointList()) {
             correction += appendIfPoint(i, aPoint, correction);
         }
         sb.append(NEXT_LINE);
