@@ -2,6 +2,7 @@ package coordinate_calculator.domain;
 
 import java.security.InvalidParameterException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Square implements Figure {
@@ -13,12 +14,21 @@ public class Square implements Figure {
 
     @Override
     public double getValue() {
-        return 0;
+        List<Point> pointList = points.getPoints();
+        pointList.sort((point1, point2) -> {
+            if(point1.getX() == point2.getX()) {
+                return point1.getY() - point2.getY();
+            }
+            return point1.getX() - point2.getX();
+        });
+        Point leftBottomPoint = pointList.get(0);
+        Point rightTopPoint = pointList.get(3);
+        return (rightTopPoint.getX() - leftBottomPoint.getX()) * (rightTopPoint.getY() - leftBottomPoint.getY());
     }
 
     @Override
     public String getPrefixMessage() {
-        return null;
+        return "사각형 넓이는 ";
     }
 
     @Override

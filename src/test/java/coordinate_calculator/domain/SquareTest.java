@@ -1,6 +1,7 @@
 package coordinate_calculator.domain;
 
 import com.sun.tools.javac.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ public class SquareTest {
 
     @BeforeEach
     void setUp() {
-        Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(2, 2), new Point(1,2),new Point(2,1))));
+        Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(3, 1), new Point(1,7),new Point(3,7))));
         square = new Square(points);
     }
 
@@ -25,5 +26,11 @@ public class SquareTest {
             Points points = new Points(new ArrayList<>(List.of(new Point(1, 1), new Point(2, 2), new Point(3,2),new Point(2,1))));
             square = new Square(points);
         }).isInstanceOf(InvalidParameterException.class);
+    }
+
+    @Test
+    void 값_계산() {
+        double value = square.getValue();
+        Assertions.assertThat(value).isEqualTo(12);
     }
 }
